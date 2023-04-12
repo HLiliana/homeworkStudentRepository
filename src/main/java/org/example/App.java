@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.List;
+
 /**
  * DESCRIPTION
  * <p>
@@ -37,19 +39,59 @@ package org.example;
  *
  * Noun:  studentRepository ,firstName,lastNAme,dateOfBirth,gender,ID, currentYear
  *
- * Verbs: create, addStudent, deleteStudentById,retrieveAllStudentByAge, calculateAge,
- * listAllStudent, orderByLastNAme, orderByBirthDate,validationAge(1900, currentYear-18)
+ * Verbs: create, addStudent, deleteStudentById, retrieveAllStudentByAge, calculateAge,
+ * listAllStudent - orderByLastNAme || orderByBirthDate, validationAge(1900, currentYear-18)
  *
- * Exceptions: exceptionsIdIsEmpty ,exceptionAgeIsNegative,exceptionInputIsEmpty
+ * Exceptions: exceptionsIdIsEmpty , exceptionAgeIsNegative, exceptionInputIsEmpty
  * validationFirstAndLastNotEmpty, validationGenderUpperAndLowerCase
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ValidationException {
 
-    StudentRepository student1 = new StudentRepository("Pop", "Ana",
-            Gender.F, new String[]{"6","0","3","0","9","2","6","1","1","1","2","2","2"});
+        StudentRepository studentRepository = new StudentRepository();
 
-        System.out.println(student1.calculateBirthYear());
-        System.out.println(student1.calculateAge());
+        try{
+        studentRepository.addStudent(new Student("", "Pop", "male",
+                "6030325111222"));
+       }catch (ValidationException e){
+            System.out.println("Please input a valid First Name. " + e.getMessage());
+        }
+
+        try{
+            studentRepository.addStudent(new Student("Ana", "", "male",
+                   "6040909111222"));
+        }catch (ValidationException e){
+            System.out.println("Please input a valid Last Name. " + e.getMessage());
+        }
+
+        try{
+            studentRepository.addStudent(new Student("Ana", "Pop", "female",
+                    "2910505111222"));
+
+        }catch (ValidationException e){
+            System.out.println("Please input a valid First Name. " + e.getMessage());
+        }
+
+        // un student nou instantiat care verifica gender sa accepte lower and upper
+        studentRepository.addStudent(new Student("Pop", "Ana", "Female",
+                "2940706111222"));
+        studentRepository.addStudent(new Student("Rus", "Ioana", "Female",
+                "2940606111222"));
+        studentRepository.addStudent(new Student("Ionescu", "Maria", "Female",
+                    "2910806111222"));
+
+
+
+//        System.out.println(student1.validationGenderInputFromUser(student1.gender));
+
+        System.out.println("Student repository size is " + studentRepository.studentList.size());
+
+//        studentRepository.deleteStudentByID(student1.ID);
+
+//        System.out.println("Student repository size is " + studentRepository.studentList.size());
+
+        System.out.println(studentRepository.retrieveAllStudentByAge("kkk"));
+
+
     }
 }

@@ -1,0 +1,37 @@
+
+    Student student1 = new Student("Pop", "Ana",
+            Gender.F, new String[]{"6","0","3","0","9","2","6","1","1","1","2","2","2"});
+
+        System.out.println(student1.calculateBirthYear());
+        System.out.println(student1.calculateAge());
+
+
+        exception + methods:
+
+        Done:
+        every variable not be null or empty
+        validationFirstAndLastNotEmpty
+        validationGenderUpperAndLowerCase
+        ID is empty modify to String not Array String
+        deleteById method
+        retrieve method
+
+
+        Undone:
+        !!age is not a number || age is negative --- try & catch
+        validationAge(1900, currentYear-18)
+        any input is empty || null
+
+        orderList
+        orderList
+
+        +Test
+
+
+        Registrator + logging nu au fost predate, nu le-am facut
+            public String getID() {
+                return ID;
+            }
+
+
+
