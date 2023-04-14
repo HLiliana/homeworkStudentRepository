@@ -2,9 +2,11 @@ package org.example;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class StudentRepository {
+
+public class StudentRepository{
     public List<Student> studentList = new ArrayList<>();
     public List<Student> resultStudentList = new ArrayList<>();
     public int ageUserChoice;
@@ -44,7 +46,8 @@ public class StudentRepository {
 
     /**
      * We checked only the string to be formed by numbers and not null.
-     * The exception for the number to not be
+     * In this method we tried to create a new list with all the student which have
+     * the ageUserChoice.
      */
     public List<Student> retrieveAllStudentByAge(String ageUserChoice) throws ValidationException {
         if( ageUserChoice == null){
@@ -67,21 +70,5 @@ public class StudentRepository {
         }
         return resultStudentList;
     }
-
-
-    public void orderByLastName(Student student) {
-
-    }
-
-    public void orderByBirthDate(Student student) throws ParseException {
-        student.getDateOfBirth(student.ID);
-    }
-
-    public void validationAge(Student student) throws ValidationException {
-        if (student.calculateAge() < 18) {
-            throw new ValidationException("Student under 18 are not allowed.");
-        }
-    }
-
 
 }

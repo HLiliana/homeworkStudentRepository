@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -81,16 +82,18 @@ public class App {
                     "2910806111222"));
 
 
-
-//        System.out.println(student1.validationGenderInputFromUser(student1.gender));
+        System.out.println(studentRepository.studentList.get(1).validationGenderInputFromUser(studentRepository.
+                studentList.get(1).gender));
 
         System.out.println("Student repository size is " + studentRepository.studentList.size());
 
-//        studentRepository.deleteStudentByID(student1.ID);
+        studentRepository.deleteStudentByID(studentRepository.studentList.get(2).ID);
 
-//        System.out.println("Student repository size is " + studentRepository.studentList.size());
+        Collections.sort(studentRepository.studentList, new StudentOrderByBirthdate());
+        Collections.sort(studentRepository.studentList, new StudentOrderByLastName());
 
-        System.out.println(studentRepository.retrieveAllStudentByAge("kkk"));
+//      la acest sout nu returneaza lista
+//        System.out.println(studentRepository.retrieveAllStudentByAge("kkk"));
 
 
     }
