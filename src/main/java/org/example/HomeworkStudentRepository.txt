@@ -1,0 +1,36 @@
+
+        Done:
+        every variable not be null or empty
+        validationFirstAndLastNotEmpty
+        validationGenderUpperAndLowerCase
+        ID is empty modify to String not Array String
+        deleteById method
+        retrieve method
+        orderListByBirthdate
+        orderListByLastName
+        any input is empty || null
+        validationAge(1900, currentYear-18)
+        age is not a number
+
+        +Test
+        Done:
+        StudentOrderByBirthdate
+        StudentOrderByLastName
+        StudentRepository -- addStudent
+        StudentRepository -- deleteStudent
+        StudentRepository -- retrieveStudentByAge
+
+
+        Questions for this homework?
+
+        age is a negative number? how if we put it like string?
+        Registrator + logging nu au fost predate, nu le-am facut
+        validation for under 1900 --  birth year
+
+
+//    assertThrows(RuntimeException.class, () -> myMethod());
+//    ValidationException exception = assertThrows(ValidationException.class,
+//    () -> athlete1.validate());
+//    assertEquals("Name null", exception.getMessage());
+
+
