@@ -20,13 +20,24 @@ class StudentOrderByBirthdateTest {
 
         List<Student> studentList = new ArrayList<>();
 
-            studentList.add(student1);
-            studentList.add(student2);
-            studentList.add(student3);
+        studentList.add(student1);
+        studentList.add(student2);
+        studentList.add(student3);
 
-            Collections.sort(studentList, new StudentOrderByBirthdate());
-            assertEquals(student3, studentList.get(0));
-            assertEquals(student1, studentList.get(1));
-            assertEquals(student2, studentList.get(2));
+        Collections.sort(studentList, new StudentOrderByBirthdate());
+        assertEquals(student3, studentList.get(0));
+        assertEquals(student1, studentList.get(1));
+        assertEquals(student2, studentList.get(2));
+    }
+
+    @Test
+    void compareStudentWithInvalidIDException() throws ParseException {
+        Student student1 = new Student("Pop", "Maria", "female", "2880808111222");
+        Student student2 = new Student("Ionescu", "Maria", "female", "300000002-2");
+
+        StudentOrderByBirthdate orderByBirthdate = new StudentOrderByBirthdate();
+
+        assertThrows(IllegalArgumentException.class, () ->
+                orderByBirthdate.compare(student1, student2));
         }
     }

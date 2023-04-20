@@ -57,24 +57,26 @@ public class Student{
     }
 
     public int calculateBirthYear() throws ValidationException {
-        try{
-            Integer.parseInt(ID.substring(0,1));
-        }catch(NumberFormatException e){
-            System.out.println("First char of the ID must be a number. ");
-        }
-
-
+        try {
         int helperYear;
         String helperID = ID.substring(1,3);
-        helperYear = (Integer.parseInt(helperID.substring(0,1)) * 10) + (Integer.parseInt(helperID.substring(1,2)));
+        helperYear = (Integer.parseInt(helperID.substring(0,1)) * 10)
+                + (Integer.parseInt(helperID.substring(1,2)));
 
         if (ID.substring(0,1).equals("1") || ID.substring(0,1).equals("2")) {
             birthYear = 1900 + helperYear;
 
         } else if (ID.substring(0,1).equals("5") || ID.substring(0,1).equals("6")) {
             birthYear = 2000 + helperYear;
+        }else {
+            throw new ValidationException("Invalid ID format, must char must be 1, 2, 5, 6, " +
+                    "for user to be born between 1900 and current year. ");
         }
         return birthYear;
+        } catch (NumberFormatException e) {
+            throw new ValidationException("First char of the ID must be a number. ");
+        }
+
     }
 
     public int calculateAge() throws ValidationException {

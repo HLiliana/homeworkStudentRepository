@@ -28,4 +28,9 @@
         validation for under 1900 --  birth year
 
 
+//    assertThrows(RuntimeException.class, () -> myMethod());
+//    ValidationException exception = assertThrows(ValidationException.class,
+//    () -> athlete1.validate());
+//    assertEquals("Name null", exception.getMessage());
+
 
